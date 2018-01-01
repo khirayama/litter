@@ -88,7 +88,7 @@ class LitterView {
   constructor(element, props = {}) {
     this.props = props;
 
-    this._el = (element === null && this.template) ? template2dom(this.template()) : element;
+    this._el = (element === null && this.template) ? _template2dom(this.template()) : element;
     this._$el = new LitterElement(this._el);
 
     if (this.render) {
@@ -104,7 +104,7 @@ class LitterView {
   }
 }
 
-function template2dom(string) {
+function _template2dom(string) {
   const parser = new DOMParser()
   const document = parser.parseFromString(string, 'text/html');
   return document.body.firstChild;
